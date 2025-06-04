@@ -1,11 +1,15 @@
 ---
 import AdminLayout from '../layouts/AdminLayout.astro'
 import RegisterForm from '../components/RegisterForm.astro'
-import UserList from '../components/UserList.astro'
+import AdminList from '../components/admin/AdminList.astro'
+import UserList from '../components/admin/UserList.astro'
 ---
 <AdminLayout>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-40 max-w-7xl mx-auto">
         <RegisterForm/>
-        <UserList/>
+        <div>
+            <AdminList/>
+            <UserList/>
+        </div>
     </div>
 </AdminLayout>

@@ -1,0 +1,72 @@
+---
+import HeaderButton from "./HeaderButton.astro"
+
+---
+
+<!-- component -->
+<header class="fixed w-full z-50 backdrop-blur-lg md:backdrop-blur-sm px-2 sm:px-4 py-2.5 ">
+    <div class="container flex flex-wrap justify-between items-center mx-auto">
+      <a href="/" class="flex items-center">
+        <img class="md:size-20 size-12 rounded-lg" src="https://www.shutterstock.com/image-vector/geometrical-pattern-design-hispanic-heritage-600nw-2464703235.jpg" alt="CecapdLogo">
+      </a>
+  
+      <div class="flex items-center">
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 md:hidden"
+        >
+          <span class="sr-only">Open main menu</span>
+          <!-- Hamburger icon -->
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+      </div>
+  
+      <nav
+        class="w-full md:block md:w-auto hidden"
+        id="mobile-menu"
+      >
+        <ul class="flex flex-col items-center mt-4 md:flex-row md:space-x-4 md:mt-0 md:text-sm text-lg md:font-medium">
+            <HeaderButton href="#">Usuarios</HeaderButton>
+            <HeaderButton href="#">Docentes</HeaderButton>
+            <HeaderButton href="#">Pruebas</HeaderButton>
+            <HeaderButton href="#">Pruebas</HeaderButton>
+        </ul>
+    </nav>
+      
+    </div>
+  </header>
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    
+    const mobileMenu = document.getElementById('mobile-menu');
+      
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', function () {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }   
+  </script>
+  <style>
+    header{
+        animation: shadow linear both;
+        animation-timeline: scroll();
+        animation-range: 0 500px;
+    }
+    @keyframes shadow {
+        to{
+            box-shadow: 0px 5px 50px -5px hsla(0, 0%, 0%, 0.1),
+            0px 0px 0 1px hsla(0, 0%, 0%, 0.1);
+        }
+        
+    }
+  </style>
+  

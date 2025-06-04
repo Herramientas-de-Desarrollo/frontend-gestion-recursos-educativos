@@ -1,20 +1,22 @@
 ---
 import './src/styles/global.css'
 import '@fontsource-variable/onest';
-import NavBar from '../components/NavBar.astro';
-const { title = "Admin Dashboard" } = Astro.props;
+import SideBar from "../components/SideBar.astro"
+const { title = "Docente Dashboard" } = Astro.props;
 import ClientRouter from 'astro/components/ClientRouter.astro';
 ---
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
-    <ClientRouter />
+    <ClientRouter/>
 </head>
-<body class="bg-amber-100">
-    <NavBar />
-    <slot />
+<body>
+    <SideBar/>
+    <main>
+        <slot/>
+    </main>
 </body>
 </html>
