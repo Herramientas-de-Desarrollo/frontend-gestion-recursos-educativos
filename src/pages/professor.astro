@@ -1,6 +1,65 @@
 ---
+import GrandCourseCard from "../components/professor/GrandCourseCard.astro";
 import DocenteLayout from "../layouts/DocenteLayout.astro";
+import Acordeon from "../components/Acordeon.jsx";
+
+const COURSES = [
+    {
+        id: 1,
+        name: "Matemáticas Avanzadas",
+        section: 8495,
+    },
+    {
+        id: 2,
+        name: "Física Cuántica",
+        section: 9321,
+    },
+    {
+        id: 3,
+        name: "Literatura Contemporánea",
+        section: 7158,
+    },
+    {
+        id: 4,
+        name: "Historia del Arte",
+        section: 6043,
+    },
+    {
+        id: 5,
+        name: "Biología Molecular",
+        section: 7786,
+    }
+
+]
+
+const ACCORDIONDATA = [
+  {
+    question: "Matematica II",
+    answer:
+      "Aqui se mostrara otras secciones con el mismo curso con algunas funciones frecuentes",
+  },
+  {
+    question: "CAF II",
+    answer:
+      "You can use Material Tailwind by importing its components into your Tailwind CSS project.",
+  },
+  {
+    question: "Introducción a la Programación",
+    answer:
+      "Material Tailwind allows you to quickly build modern, responsive websites with a focus on design.",
+  },
+];
 ---
 <DocenteLayout>
-    <h1 class="text-4xl">Hola</h1>
+    <h1 class="text-4xl font-bold mb-4">Bienvenido!</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {COURSES.map(course => (
+            <GrandCourseCard
+                title={course.name}
+                section={course.section}/>
+        ))}
+    </div>
+    <h1 class="text-4xl font-bold my-4">Acordeon con Cursos</h1>
+    <Acordeon accordionData={ACCORDIONDATA} client:load/>
+    <br>
 </DocenteLayout>
