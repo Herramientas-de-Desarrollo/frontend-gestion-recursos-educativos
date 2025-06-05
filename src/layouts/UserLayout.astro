@@ -2,21 +2,33 @@
 import SideBar from "../components/SideBar.astro"
 import './src/styles/global.css'
 import '@fontsource-variable/onest';
-const { title = "Admin Dashboard" } = Astro.props;
+const { title = "User Dashboard" } = Astro.props;
 import ClientRouter from 'astro/components/ClientRouter.astro';
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/tina.svg" />
     <ClientRouter/>
 </head>
-<body class="flex">
+<body class="flex bg-amber-50">
     <SideBar/>
-    <main>
+    <div class="w-16 shrink-0"></div>
+    <main class="m-8">
         <slot/>
     </main>
 </body>
 </html>
+
+<style>
+	html,
+	body {
+		margin: 0;
+		width: 100%;
+		height: 100%;
+		font-family: 'Onest Variable', sans-serif;
+	}
+</style>
