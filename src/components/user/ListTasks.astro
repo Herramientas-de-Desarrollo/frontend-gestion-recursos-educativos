@@ -1,0 +1,32 @@
+---
+interface Task {
+    title: string;
+    description: string;
+    dueDate: string;
+}
+
+import TaskCard from "./TaskCard.astro"
+import MenuIcon from "../icons/MenuIcon.astro";
+const { tasks }= Astro.props as { tasks: Task[]}
+---
+<article class="rounded-xl bg-white border border-gray-300 shadow-sm p-4">
+  <div class="flex items-center gap-4">
+    <MenuIcon/>
+
+    <div>
+      <h3 class="text-lg font-medium text-black">Actividades Semanales</h3>
+    </div>
+  </div>
+
+  <ul class="mt-4 space-y-2">
+    {tasks.map(task => (
+        <li>
+            <TaskCard 
+                title={task.title}
+                description={task.description}
+                dueDate={task.dueDate}
+            />
+        </li>
+    ))}
+  </ul>
+</article>

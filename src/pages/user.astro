@@ -1,6 +1,108 @@
 ---
 import UserLayout from "../layouts/UserLayout.astro";
+import CourseCard from "../components/user/CourseCard.astro";
+import ListTasks from "../components/user/ListTasks.astro";
+
+const COURSES = [
+    {
+        id: 1,
+        title: "Curso de Programación",
+        author: "Benito Camelo",
+        description: "Aprende los fundamentos de la programación desde cero.",
+        image: "https://concepto.de/wp-content/uploads/2020/08/Programacion-informatica-scaled-e1724960033513.jpg"
+    },
+    {
+        id: 2,
+        title: "Curso de Diseño Gráfico",
+        author: "Hernan Peña",
+        description: "Explora las herramientas y técnicas del diseño gráfico.",
+        image: "https://destakamarketing.com/wp-content/uploads/2024/09/programas-de-Diseno-grafico.webp"
+    },
+    {
+        id: 3,
+        title: "Curso de Marketing Digital",
+        author: "Kaleb Zambrano",
+        description: "Domina las estrategias de marketing digital para tu negocio.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWVy2T2ZUQNLgDJVRXwOLq9pRqab5GXR9BMw&s"
+    },
+    {
+        id: 4,
+        title: "Curso de Inteligencia Artificial",
+        author: "Laura Méndez",
+        description: "Introducción a los conceptos y aplicaciones de la inteligencia artificial moderna.",
+        image: "https://we-educacion.com/web/image/40018/futuro-robot-inteligencia-artificial-fondo-sistema-red.jpg"
+    },
+    {
+        id: 5,
+        title: "Curso de Desarrollo Web",
+        author: "Carlos Ramírez",
+        description: "Aprende a construir sitios web desde cero con HTML, CSS y JavaScript.",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzAxIzs2yRTPxONA1yBwMZdhkNwlqmIpxFug&s"
+    },
+    {
+        id: 6,
+        title: "Curso de Ciberseguridad",
+        author: "Ana Torres",
+        description: "Conoce los principios básicos para proteger sistemas y redes ante amenazas digitales.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/640px-Unofficial_JavaScript_logo_2.svg.png"
+    },
+    {
+        id: 7,
+        title: "Curso de Finanzas Personales",
+        author: "Jorge Castillo",
+        description: "Aprende a gestionar tu dinero, ahorrar e invertir de forma inteligente.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg"
+    },
+    {
+        id: 8,
+        title: "Curso de Fotografía Digital",
+        author: "Marcela Ríos",
+        description: "Descubre cómo capturar imágenes impactantes y dominar la edición fotográfica.",
+        image: "https://upload.wikimedia.org/wikipedia/commons/a/ab/Official_CSS_Logo.svg"
+    }
+]
+
+const TASKS = [
+    {
+        id: 1,
+        title: "Tarea de Programación",
+        description: "Completa los ejercicios de programación de la semana.",
+        dueDate: "2024-10-15"
+    },
+    {
+        id: 2,
+        title: "Proyecto de Diseño Gráfico",
+        description: "Crea un cartel publicitario utilizando herramientas de diseño.",
+        dueDate: "2024-10-20"
+    },
+    {
+        id: 3,
+        title: "Estrategia de Marketing Digital",
+        description: "Desarrolla una estrategia de marketing para un producto ficticio.",
+        dueDate: "2024-10-25"
+    }
+]
 ---
 <UserLayout>
-    <h1 class="text-4xl">Hola</h1>
+    <h1 class="text-4xl font-bold mb-4">Bienvenido!</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-4 md:grid-cols-3 gap-4">
+        <div class="order-2 sm:order-1 col-span-2">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            {COURSES.map(course => {
+                return (
+                    <CourseCard
+                        title={course.title}
+                        author={course.author}
+                        description={course.description}
+                        image={course.image}
+                        />
+                )
+            })}
+        </div>
+        </div>
+        <div class="order-1 sm:order-2 col-span-2 md:col-span-1">
+            <ListTasks tasks={TASKS}/>
+        </div>
+    </div>
+    <br>
 </UserLayout>

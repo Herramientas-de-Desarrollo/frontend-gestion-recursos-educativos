@@ -1,0 +1,11 @@
+---
+const {title, description, dueDate} = Astro.props
+---
+<a href="#" class="block h-full rounded-lg border border-gray-500 shadow-sm p-4 hover:border-pink-600 bg-pink-50">
+    <strong class="font-medium text-black">{title}</strong>
+
+    <p class="mt-1 text-xs font-medium text-gray-900">
+        {description}
+    </p>
+    <dd class="mt-1 text-xs text-gray-700">{dueDate}</dd>
+</a>
